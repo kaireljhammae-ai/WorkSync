@@ -1,0 +1,132 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Login | WorkSync</title>
+    <link rel="stylesheet" href="/css/auth.css">
+    <script src="/js/auth.js" defer></script>
+</head>
+<body>
+
+    <main class="auth-page">
+
+        <section class="auth-left">
+            <a href="/index.html" class="brand">
+                <span class="brand-mark">W</span>
+                WorkSync
+            </a>
+
+            <div class="auth-content">
+                <div class="portal-label"><span></span> EMPLOYEE PORTAL</div>
+
+                <h1>Your work life,<br><em>in one place.</em></h1>
+
+                <p class="intro">
+                    Manage your leave applications, monitor overtime hours,
+                    and keep track of your workplace activities with ease.
+                </p>
+
+                <form id="loginForm" data-role="Employee">
+                    <div class="form-heading">
+                        <h2>Sign in to your account</h2>
+                        <p>Welcome back. Enter your employee credentials.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input id="username" name="username" type="text"
+                               placeholder="Enter your username"
+                               autocomplete="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-wrapper">
+                            <input id="password" name="password" type="password"
+                                   placeholder="Enter your password"
+                                   autocomplete="current-password" required>
+                            <button type="button" class="toggle-password">SHOW</button>
+                        </div>
+                    </div>
+
+                    <div id="message" class="message" role="alert"></div>
+
+                    <button type="submit" class="login-button">
+                        Access Employee Portal <span>→</span>
+                    </button>
+
+                    <p class="signup-text">
+                        New to WorkSync?
+                        <a href="/employee-signup.html">Create an account</a>
+                    </p>
+
+                    <p class="switch-text">
+                        Are you an administrator?
+                        <a href="/admin-login.html">Admin login</a>
+                    </p>
+                </form>
+            </div>
+
+            <footer class="auth-footer">© 2026 WorkSync · Employee Services</footer>
+        </section>
+
+        <section class="auth-right">
+            <div class="visual-content">
+                <div class="visual-kicker">YOUR WORKPLACE, ORGANIZED</div>
+                <h2 class="visual-title">Every request.<br>Every hour. In sync.</h2>
+                <p class="visual-description">
+                    A clearer way to manage your work schedule, leave records,
+                    and overtime applications.
+                </p>
+
+                <div class="workflow-board">
+                    <div class="board-top">
+                        <div>
+                            <small>EMPLOYEE WORKSPACE</small><br>
+                            <strong>My work activity</strong>
+                        </div>
+                        <span class="board-tag">MY RECORDS</span>
+                    </div>
+
+                    <div class="workflow-list">
+                        <div class="workflow-item">
+                            <div class="workflow-icon">▦</div>
+                            <div class="workflow-info">
+                                <strong>Leave application</strong>
+                                <small>Vacation leave · 3 days</small>
+                            </div>
+                            <span class="workflow-status approved">Approved</span>
+                        </div>
+
+                        <div class="workflow-item">
+                            <div class="workflow-icon pink">◷</div>
+                            <div class="workflow-info">
+                                <strong>Overtime request</strong>
+                                <small>Additional work hours</small>
+                            </div>
+                            <span class="workflow-status pending">Pending</span>
+                        </div>
+
+                        <div class="workflow-item">
+                            <div class="workflow-icon green">✓</div>
+                            <div class="workflow-info">
+                                <strong>Leave balance</strong>
+                                <small>Available leave records</small>
+                            </div>
+                            <span class="workflow-status approved">Updated</span>
+                        </div>
+                    </div>
+
+                    <div class="board-footer">
+                        <span>WORKSYNC EMPLOYEE SERVICES</span>
+                        <span>01 / 03</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

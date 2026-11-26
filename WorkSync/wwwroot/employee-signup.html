@@ -1,0 +1,143 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | WorkSync</title>
+    <link rel="stylesheet" href="/css/auth.css">
+    <script src="/js/auth.js" defer></script>
+</head>
+<body>
+
+    <main class="auth-page">
+
+        <section class="auth-left">
+            <a href="/index.html" class="brand">
+                <span class="brand-mark">W</span>
+                WorkSync
+            </a>
+
+            <div class="auth-content">
+                <div class="portal-label"><span></span> EMPLOYEE REGISTRATION</div>
+
+                <h1>Start your<br><em>WorkSync journey.</em></h1>
+
+                <p class="intro">
+                    Create your employee account to access leave management,
+                    overtime applications, and your personal work records.
+                </p>
+
+                <form id="registerForm">
+                    <div class="form-heading">
+                        <h2>Create employee account</h2>
+                        <p>Fill in the details below to get started.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fullName">Full name</label>
+                        <input id="fullName" name="fullName" type="text"
+                               placeholder="Enter your full name"
+                               autocomplete="name" maxlength="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input id="username" name="username" type="text"
+                               placeholder="Create a username"
+                               autocomplete="username" minlength="3"
+                               maxlength="30" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-wrapper">
+                            <input id="password" name="password" type="password"
+                                   placeholder="Create a password"
+                                   autocomplete="new-password"
+                                   minlength="8" required>
+                            <button type="button" class="toggle-password">SHOW</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm password</label>
+                        <div class="password-wrapper">
+                            <input id="confirmPassword" name="confirmPassword"
+                                   type="password" placeholder="Re-enter your password"
+                                   autocomplete="new-password" required>
+                            <button type="button" class="toggle-password">SHOW</button>
+                        </div>
+                    </div>
+
+                    <div id="message" class="message" role="alert"></div>
+
+                    <button type="submit" class="login-button">
+                        Create Employee Account <span>→</span>
+                    </button>
+
+                    <p class="signup-text">
+                        Already registered?
+                        <a href="/employee-login.html">Sign in</a>
+                    </p>
+                </form>
+            </div>
+
+            <footer class="auth-footer">© 2026 WorkSync · Employee Registration</footer>
+        </section>
+
+        <section class="auth-right">
+            <div class="visual-content">
+                <div class="visual-kicker">A BETTER WAY TO WORK</div>
+                <h2 class="visual-title">One account.<br>A more organized workday.</h2>
+                <p class="visual-description">
+                    Your employee workspace brings important work processes
+                    together, from leave applications to overtime tracking.
+                </p>
+
+                <div class="workflow-board">
+                    <div class="board-top">
+                        <div>
+                            <small>YOUR WORKSYNC ACCOUNT</small><br>
+                            <strong>Getting started</strong>
+                        </div>
+                        <span class="board-tag">WELCOME</span>
+                    </div>
+
+                    <div class="signup-steps">
+                        <div class="signup-step">
+                            <div class="step-number">01</div>
+                            <div>
+                                <strong>Create your account</strong>
+                                <p>Register your employee username and password.</p>
+                            </div>
+                        </div>
+
+                        <div class="signup-step">
+                            <div class="step-number">02</div>
+                            <div>
+                                <strong>Access your workspace</strong>
+                                <p>Sign in to your employee portal.</p>
+                            </div>
+                        </div>
+
+                        <div class="signup-step">
+                            <div class="step-number">03</div>
+                            <div>
+                                <strong>Manage work requests</strong>
+                                <p>Keep track of leave and overtime applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="board-footer">
+                        <span>WORKSYNC EMPLOYEE SERVICES</span>
+                        <span>03 / 03</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

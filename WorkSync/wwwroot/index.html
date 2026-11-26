@@ -1,0 +1,964 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkSync | Employee Management System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --indigo: #312C51;
+            --purple: #48426D;
+            --peach: #F0C38E;
+            --pink: #F1AA9B;
+            --cream: #FFF9F2;
+            --white: #FFFFFF;
+            --text: #38344D;
+            --muted: #89859A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 249, 242, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(49, 44, 81, 0.06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--indigo);
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 39px;
+            height: 39px;
+            border-radius: 12px;
+            background: var(--indigo);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+            .nav-links a {
+                color: var(--purple);
+                font-size: 14px;
+                font-weight: 600;
+                transition: 0.3s;
+            }
+
+                .nav-links a:hover {
+                    color: #B17C78;
+                }
+
+        .nav-button {
+            background: var(--indigo);
+            color: white !important;
+            padding: 12px 23px;
+            border-radius: 10px;
+        }
+
+            .nav-button:hover {
+                background: var(--purple);
+                transform: translateY(-2px);
+            }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 650px;
+            padding: 75px 8% 85px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 35px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #F7E9DA;
+            color: #9B716C;
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(43px, 5.5vw, 68px);
+            line-height: 1.12;
+            color: var(--indigo);
+            margin-bottom: 24px;
+        }
+
+            .hero h1 span {
+                color: #B17C78;
+                font-style: italic;
+            }
+
+        .hero-description {
+            max-width: 470px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .primary-button,
+        .secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            border-radius: 11px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .primary-button {
+            background: var(--indigo);
+            color: white;
+            box-shadow: 0 9px 20px rgba(49, 44, 81, 0.15);
+        }
+
+            .primary-button:hover {
+                background: var(--purple);
+                transform: translateY(-3px);
+            }
+
+        .secondary-button {
+            border: 1px solid #DED8D1;
+            color: var(--indigo);
+            background: white;
+        }
+
+            .secondary-button:hover {
+                border-color: var(--purple);
+                transform: translateY(-3px);
+            }
+
+        /* GRAPHIC ILLUSTRATION */
+
+        .illustration-area {
+            position: relative;
+            min-height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .illustration-circle {
+            position: absolute;
+            width: 390px;
+            height: 390px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--peach), var(--pink));
+            opacity: 0.22;
+            filter: blur(5px);
+        }
+
+        .office-illustration {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            z-index: 2;
+            overflow: visible;
+            animation: floatIllustration 5s ease-in-out infinite;
+        }
+
+        .illustration-caption {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            z-index: 3;
+            padding: 15px 22px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(49, 44, 81, 0.12);
+            color: var(--purple);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+            .illustration-caption span {
+                color: #B17C78;
+                margin-right: 5px;
+            }
+
+        @keyframes floatIllustration {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* FEATURES */
+
+        .features {
+            padding: 90px 8%;
+            background: white;
+            text-align: center;
+        }
+
+        .section-label {
+            color: #B17C78;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 13px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 4vw, 43px);
+            color: var(--indigo);
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 570px;
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 55px;
+            text-align: left;
+        }
+
+        .feature-card {
+            padding: 32px 27px;
+            border-radius: 18px;
+            background: var(--cream);
+            border: 1px solid #F0EAE3;
+            transition: 0.3s;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-7px);
+                box-shadow: 0 15px 35px rgba(49, 44, 81, 0.08);
+            }
+
+        .feature-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            margin-bottom: 23px;
+        }
+
+        .icon-peach {
+            background: #F8E6D1;
+        }
+
+        .icon-pink {
+            background: #F8DFDC;
+        }
+
+        .icon-purple {
+            background: #E8E5F1;
+        }
+
+        .feature-card h3 {
+            color: var(--indigo);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* PORTAL SECTION */
+
+        .portals {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            margin: 50px auto 0;
+            text-align: left;
+        }
+
+        .portal-card {
+            padding: 35px;
+            border-radius: 20px;
+            background: white;
+            border: 1px solid #F0EAE3;
+            box-shadow: 0 10px 30px rgba(49, 44, 81, 0.04);
+            transition: 0.3s;
+        }
+
+            .portal-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 15px 35px rgba(49, 44, 81, 0.10);
+            }
+
+        .portal-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .portal-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+        }
+
+        .employee-icon {
+            background: #F8E6D1;
+        }
+
+        .admin-icon {
+            background: #E8E5F1;
+        }
+
+        .portal-card h3 {
+            color: var(--indigo);
+            font-size: 20px;
+        }
+
+        .portal-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .portal-link {
+            display: inline-block;
+            background: var(--indigo);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+            .portal-link:hover {
+                background: var(--purple);
+                transform: translateY(-2px);
+            }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--indigo);
+            color: white;
+            padding: 35px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        footer p {
+            color: #C5C1D2;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 60px;
+            }
+
+            .hero-content {
+                margin: auto;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .illustration-area {
+                max-width: 600px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                padding: 16px 5%;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+                .nav-links a:not(.nav-button) {
+                    display: none;
+                }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 12px !important;
+            }
+
+            .hero {
+                padding: 55px 6%;
+            }
+
+            .illustration-area {
+                min-height: 350px;
+                padding: 5px;
+            }
+
+            .office-illustration {
+                width: 100%;
+            }
+
+            .illustration-circle {
+                width: 260px;
+                height: 260px;
+            }
+
+            .illustration-caption {
+                bottom: -5px;
+                right: 0;
+                font-size: 10px;
+                padding: 11px 14px;
+            }
+
+            .features,
+            .portals {
+                padding: 70px 6%;
+            }
+
+            .feature-grid,
+            .portal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">W</div>
+            WorkSync
+        </a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#portals">Portals</a>
+            <a href="employee-login.html" class="nav-button">Get Started</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                ✦ SMARTER WORKFORCE MANAGEMENT
+            </div>
+
+            <h1>
+                Work better.<br>
+                Manage <span>easier.</span>
+            </h1>
+
+            <p class="hero-description">
+                Simplify employee leave applications and overtime
+                management with WorkSync. A smarter and more organized
+                way to manage your workplace.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="employee-login.html" class="primary-button">
+                    Employee Login →
+                </a>
+
+                <a href="#features" class="secondary-button">
+                    Explore Features
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- GRAPHIC ILLUSTRATION -->
+        <div class="illustration-area">
+
+            <div class="illustration-circle"></div>
+
+            <svg class="office-illustration"
+                 viewBox="0 0 600 490"
+                 xmlns="http://www.w3.org/2000/svg"
+                 role="img"
+                 aria-label="Illustration of employees working together with a digital management dashboard">
+
+                <!-- BACKGROUND SHAPES -->
+                <circle cx="300" cy="245" r="185" fill="#F8E9DC" />
+
+                <circle cx="100" cy="110" r="13" fill="#F0C38E" />
+                <circle cx="490" cy="95" r="9" fill="#F1AA9B" />
+                <circle cx="510" cy="350" r="14" fill="#F0C38E" />
+
+                <!-- FLOOR -->
+                <ellipse cx="300" cy="425" rx="230" ry="23" fill="#E6DCD5" />
+
+                <!-- WINDOW -->
+                <rect x="80" y="85" width="145" height="150"
+                      rx="15" fill="#FFFFFF" />
+
+                <rect x="92" y="97" width="121" height="126"
+                      rx="9" fill="#DCE8EA" />
+
+                <path d="M152 97 V223 M92 160 H213"
+                      stroke="#FFFFFF" stroke-width="7" />
+
+                <circle cx="120" cy="125" r="17" fill="#F0C38E" />
+                <path d="M92 202 Q120 165 150 202"
+                      fill="#A6B7A8" />
+
+                <!-- WALL DECORATION -->
+                <rect x="395" y="78" width="105" height="75"
+                      rx="10" fill="#FFFFFF" />
+
+                <rect x="407" y="90" width="81" height="51"
+                      rx="5" fill="#E9E5F0" />
+
+                <path d="M417 127 L435 108 L449 118 L472 98"
+                      stroke="#B17C78"
+                      stroke-width="5"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+
+                <!-- DESK -->
+                <rect x="145" y="325" width="310" height="17"
+                      rx="8" fill="#48426D" />
+
+                <path d="M175 342 V420 M425 342 V420"
+                      stroke="#48426D"
+                      stroke-width="12"
+                      stroke-linecap="round" />
+
+                <!-- MONITOR -->
+                <rect x="245" y="195" width="145" height="115"
+                      rx="12" fill="#312C51" />
+
+                <rect x="255" y="205" width="125" height="94"
+                      rx="6" fill="#FFFFFF" />
+
+                <rect x="266" y="216" width="103" height="13"
+                      rx="4" fill="#E8E5F1" />
+
+                <rect x="266" y="238" width="48" height="45"
+                      rx="5" fill="#F8E6D1" />
+
+                <rect x="321" y="238" width="48" height="45"
+                      rx="5" fill="#F8DFDC" />
+
+                <path d="M273 271 L282 258 L291 264 L303 246"
+                      stroke="#B17C78"
+                      stroke-width="4"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+
+                <rect x="302" y="310" width="30" height="15"
+                      rx="3" fill="#48426D" />
+
+                <rect x="283" y="323" width="68" height="7"
+                      rx="3" fill="#48426D" />
+
+                <!-- EMPLOYEE LEFT -->
+                <circle cx="185" cy="225" r="27" fill="#B77F68" />
+
+                <path d="M159 222 Q160 187 190 190 Q214 194 210 225
+                         Q198 207 183 210 Q170 211 159 222"
+                      fill="#312C51" />
+
+                <path d="M142 315 Q145 260 185 258 Q225 260 231 315"
+                      fill="#F1AA9B" />
+
+                <path d="M157 280 L135 316"
+                      stroke="#B77F68"
+                      stroke-width="12"
+                      stroke-linecap="round" />
+
+                <path d="M211 281 L239 300"
+                      stroke="#B77F68"
+                      stroke-width="12"
+                      stroke-linecap="round" />
+
+                <!-- EMPLOYEE RIGHT -->
+                <circle cx="455" cy="230" r="26" fill="#D49A78" />
+
+                <path d="M430 226 Q431 190 461 195 Q483 198 481 226
+                         Q463 208 449 213 Q438 215 430 226"
+                      fill="#48426D" />
+
+                <path d="M416 315 Q417 262 455 261 Q493 263 496 315"
+                      fill="#48426D" />
+
+                <path d="M430 280 L402 305"
+                      stroke="#D49A78"
+                      stroke-width="12"
+                      stroke-linecap="round" />
+
+                <path d="M481 280 L506 306"
+                      stroke="#D49A78"
+                      stroke-width="12"
+                      stroke-linecap="round" />
+
+                <!-- PLANT -->
+                <rect x="85" y="350" width="40" height="58"
+                      rx="7" fill="#F0C38E" />
+
+                <path d="M105 350 Q70 312 88 286
+                         Q115 300 105 350"
+                      fill="#8FA58E" />
+
+                <path d="M105 350 Q125 305 145 310
+                         Q144 338 105 350"
+                      fill="#A7B99B" />
+
+                <path d="M105 350 Q87 318 68 325
+                         Q75 348 105 350"
+                      fill="#718E7A" />
+
+                <!-- FLOATING SCHEDULE CARD -->
+                <rect x="390" y="165" width="125" height="73"
+                      rx="12" fill="#FFFFFF" />
+
+                <circle cx="410" cy="186" r="9" fill="#F1AA9B" />
+
+                <path d="M406 186 L409 189 L415 182"
+                      stroke="#FFFFFF"
+                      stroke-width="2.5"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+
+                <rect x="426" y="180" width="70" height="7"
+                      rx="3" fill="#48426D" />
+
+                <rect x="426" y="194" width="48" height="5"
+                      rx="2" fill="#D8D4E3" />
+
+                <rect x="405" y="211" width="91" height="5"
+                      rx="2" fill="#E8E5F1" />
+
+                <!-- FLOATING NOTIFICATION -->
+                <rect x="65" y="260" width="112" height="57"
+                      rx="12" fill="#FFFFFF" />
+
+                <circle cx="86" cy="287" r="11" fill="#F0C38E" />
+
+                <path d="M81 287 L85 291 L92 282"
+                      stroke="#FFFFFF"
+                      stroke-width="2.5"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+
+                <rect x="103" y="278" width="60" height="6"
+                      rx="3" fill="#48426D" />
+
+                <rect x="103" y="290" width="43" height="5"
+                      rx="2" fill="#D8D4E3" />
+
+                <!-- DECORATIVE SPARKLES -->
+                <path d="M530 205 L535 218 L548 223 L535 228 L530 241
+                         L525 228 L512 223 L525 218 Z"
+                      fill="#F0C38E" />
+
+                <path d="M78 180 L82 190 L92 194 L82 198 L78 208
+                         L74 198 L64 194 L74 190 Z"
+                      fill="#F1AA9B" />
+
+                <circle cx="530" cy="285" r="5" fill="#B17C78" />
+
+            </svg>
+
+            <div class="illustration-caption">
+                <span>✦</span> People. Productivity. Progress.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+
+        <div class="section-label">WHAT WE OFFER</div>
+
+        <h2 class="section-title">
+            Everything in Sync
+        </h2>
+
+        <p class="section-description">
+            WorkSync helps organize important employee processes
+            through one convenient management platform.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon icon-peach">📅</div>
+
+                <h3>Leave Management</h3>
+
+                <p>
+                    Submit leave applications and keep track of
+                    their approval status in one organized place.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-pink">⏰</div>
+
+                <h3>Overtime Requests</h3>
+
+                <p>
+                    Manage overtime applications and monitor
+                    request updates with ease.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-purple">📊</div>
+
+                <h3>Admin Monitoring</h3>
+
+                <p>
+                    Help administrators review employee requests
+                    and manage workplace records.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTAL SECTION -->
+    <section class="portals" id="portals">
+
+        <div class="section-label">ACCESS YOUR ACCOUNT</div>
+
+        <h2 class="section-title">
+            Choose Your Portal
+        </h2>
+
+        <p class="section-description">
+            Select the portal that matches your account to
+            access the WorkSync system.
+        </p>
+
+        <div class="portal-grid">
+
+            <!-- EMPLOYEE PORTAL -->
+            <div class="portal-card">
+
+                <div class="portal-top">
+
+                    <div class="portal-icon employee-icon">
+                        👩‍💼
+                    </div>
+
+                    <h3>Employee Portal</h3>
+
+                </div>
+
+                <p>
+                    Access your employee account, submit leave
+                    applications, request overtime, and monitor
+                    your request status.
+                </p>
+
+                <a href="employee-login.html" class="portal-link">
+                    Employee Login →
+                </a>
+
+            </div>
+
+
+            <!-- ADMIN PORTAL -->
+            <div class="portal-card">
+
+                <div class="portal-top">
+
+                    <div class="portal-icon admin-icon">
+                        🛡️
+                    </div>
+
+                    <h3>Administrator Portal</h3>
+
+                </div>
+
+                <p>
+                    Access the administrator account to review
+                    employee applications and manage leave and
+                    overtime requests.
+                </p>
+
+                <a href="admin-login.html" class="portal-link">
+                    Admin Login →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            WorkSync
+        </div>
+
+        <p>
+            Employee Leave and Overtime Management System
+        </p>
+
+        <p>
+            © 2026 WorkSync. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

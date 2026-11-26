@@ -1,0 +1,145 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f5f3f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 900px;
+    min-height: 550px;
+    display: flex;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+}
+
+.login-left {
+    width: 45%;
+    background: linear-gradient( 145deg, #312C51, #48426D );
+    color: white;
+    padding: 65px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .login-left h1 {
+        font-size: 38px;
+        color: #F0C38E;
+        margin-bottom: 35px;
+    }
+
+    .login-left h2 {
+        font-size: 27px;
+        margin-bottom: 18px;
+    }
+
+    .login-left p {
+        line-height: 1.7;
+        color: #e5e1ed;
+    }
+
+.login-right {
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 350px;
+}
+
+    .login-box h2 {
+        color: #312C51;
+        font-size: 30px;
+        margin-bottom: 8px;
+    }
+
+.subtitle {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.login-box label {
+    display: block;
+    margin: 15px 0 8px;
+    color: #312C51;
+    font-weight: bold;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline: none;
+}
+
+    .login-box input:focus {
+        border-color: #48426D;
+    }
+
+.login-box button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    background: #312C51;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .login-box button:hover {
+        background: #48426D;
+    }
+
+.demo-title {
+    margin-top: 25px;
+    font-weight: bold;
+    color: #312C51;
+}
+
+.demo-account {
+    margin-top: 7px;
+    color: #777;
+    font-size: 13px;
+}
+
+.error-message {
+    padding: 10px;
+    background: #fce8e6;
+    color: #a52a2a;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 700px) {
+    .login-container {
+        width: 95%;
+        flex-direction: column;
+    }
+
+    .login-left,
+    .login-right {
+        width: 100%;
+    }
+
+    .login-left {
+        padding: 35px;
+    }
+}

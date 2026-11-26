@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h1>WorkSync Admin Dashboard</h1>
+<p>Welcome, Administrator!</p>
+
+<div class="dashboard-cards">
+    <div class="card">
+        <h3>Employees</h3>
+        <h2>0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Pending Leave Requests</h3>
+        <h2>0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Overtime Requests</h3>
+        <h2>0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Undertime Requests</h3>
+        <h2>0</h2>
+    </div>
+</div>
+
+<form asp-controller="Account"
+      asp-action="Logout"
+      method="post">
+    @Html.AntiForgeryToken()
+    <button type="submit">Logout</button>
+</form>
